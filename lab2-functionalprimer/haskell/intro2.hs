@@ -12,8 +12,9 @@ m = 1                      -- unless this line is also present
 
 -- sequencing several imperative programs:
 prg1 = do
-  print "hello " 
+  print "Hello!" 
   print name  -- level of indentation is important
+  print ("Hello " ++ name)
 
 -- the same, but using algebra of imperative programs:
 prg1' = sequence_ [print "hello ", print name]
@@ -23,8 +24,7 @@ prg2 = do
   line <- getLine
   putStrLn ("you typed: " ++ line)
 
-main =
-  do
+main = do
   putStrLn name -- like print, but only for strings
   -- putStrLn pname3 -- Couldn't match type ...; Expected type: String; Actual type: IO ()
   pname3 -- in Lisp: eval pname3
